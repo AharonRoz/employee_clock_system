@@ -8,7 +8,8 @@
 <body>
 <?php
 include '../../db/db_connection.php';
-// LOGIN LOGICS
+include "login_failed_alert.php";
+    include "login_form.php";
 ?>
 </body>
 </html>

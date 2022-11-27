@@ -7,7 +7,9 @@
 </head>
 <body>
 <?php
-// SIGNUP LOGICS
+ include "signup_form.php";
+ include "signup_missing_details.php";
+ include "signup_sucsses.php";
 ?>
 </body>
 </html>
