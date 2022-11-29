@@ -4,9 +4,7 @@
 // If you have not set database password on localhost then set empty.
 $con = mysqli_connect("localhost","root","1234567","clock_project");
 // Check Connection
-if(mysqli_connect_errno()){
+if(mysqli_connect_error()){
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}else{
-    echo "Connected successfully";
 }
 ?>

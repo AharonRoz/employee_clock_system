@@ -1,0 +1,30 @@
+CREATE TABLE users(
+id int NOT NULL AUTO_INCREMENT,
+username varchar(50) NOT NULL,
+password varchar(50) NOT NULL,
+email varchar(50),
+datetime datetime,
+role varchar(10) DEFAULT 'user'
+PRIMARY KEY (id)
+);
+
+create a table of records_data ( we will do it with me in lesson 6 )
+
+user pressed enter:
+id user_id enter_time->14:22 , exit_time->null, created_date  // use timestamp type
+
+user pressed exit:
+id user_id enter_time->null , exit_time->14:22, created_date // use timestamp type
+
+
+create an enter button and exit button ( if we press enter while there is not exit, enter button is disabled )
+
+create a table that records all of the user times
+table of username email enter_time exit_time
+
+create a profile page that contain for workers hours and dry details like name email etc..,
+for admins all of the workers hours in a table and dry details about workers and of the admin
+
+
+
+

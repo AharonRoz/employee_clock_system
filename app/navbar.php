@@ -6,15 +6,12 @@ include '../db/auth_session.php';
 <ul>
   <li><span class='user-area'>Hello, <?= $_SESSION['username'] ?></span></li>
   <li><a href="./clock.php">Clock</a></li>
-  <li><a href="./timer.php">Timer</a></li>
   <li><a href="../login_system/logout.php">Logout</a></li>
 </ul>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <style>
-
-    
 ul {
   list-style-type: none;
   margin: 0;
