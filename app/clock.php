@@ -1,5 +1,6 @@
 <?php 
 include './navbar.php';
+$isIn = false;
 $user_id = stripslashes($_SESSION['user_id']);
 $user_id = mysqli_real_escape_string($con, $user_id);
 
@@ -12,7 +13,12 @@ $result = mysqli_query($con,$query) or die(mysql_error());
 }
 
 if(isset($_POST['exitBtn'])){
-    $query = "UPDATE `records_data` SET `exit_time`=CURRENT_TIMESTAMP";
+    $query = "SELECT MAX(id) FROM `records_data`";
+    $result2 = mysqli_query($con, $query) or die(mysql_error());
+    
+    $arr = $result2 -> fetch_array();
+    
+    $query = "UPDATE `records_data` SET `exit_time`=CURRENT_TIMESTAMP WHERE `id` = '$arr[0]'";
 
 $result = mysqli_query($con,$query) or die(mysql_error());
 
@@ -26,11 +32,30 @@ $result = mysqli_query($con,$query) or die(mysql_error());
     <div id="timeZone"></div>
  
 </div>
+
+
 <form method="post">
 <input id="enterBtn" type="submit" name="enterBtn" style="color:green" class="btn" value="Enter">&nbsp&nbsp&nbsp</input>
 
   <input id="exitBtn" type="submit" name="exitBtn" style="color:red" class="btn" value="Exit"></input>
 </form>
+<script>
+$(document).ready(function(){
+    $('#enterBtn').click(function(e){
+        e.preventDefault();
+        document.getElementById("enterBtn").style.display = "none";
+        document.getElementById("exitBtn").style.display = "";
+    });
+});
+
+$(document).ready(function(){
+    $('#exitBtn').click(function(e){
+        e.preventDefault();
+        document.getElementById("enterBtn").style.display = "";
+        document.getElementById("exitBtn").style.display = "none";
+    });
+});
+</script>
 <!-- <script>
     let isIn = false
 function showEnter(isIn) {
